@@ -20,7 +20,7 @@ jobs:
           python-version: '3.9'
           cache: 'pip'
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r data_pipeline/requirements.txt
       - name: Run data pipeline
         env:
           YT_API_KEY: ${{ secrets.YT_API_KEY }} # import API key
