@@ -24,10 +24,16 @@ jobs:
       - name: Run data pipeline
         env:
           YT_API_KEY: ${{ secrets.YT_API_KEY }} # import API key
+        run: python data_pipeline/data_pipeline.py # run data pipeline
+      - name: Check for changes # create env variable indicating if any changes were made
+        id: git-check
         run: |
-          python data_pipeline/data_pipeline.py
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          git config user.name 'github-actions'
+          git config user.email 'github-actions@github.com'
           git add .
+          git diff --staged --quiet || echo "changes=true" >> $GITHUB_ENV 
+      - name: Commit and push if changes
+        if: env.changes == 'true' # if changes made push new data to repo
+        run: |
           git commit -m "updated video index"
           git push
