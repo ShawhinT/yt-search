@@ -7,5 +7,5 @@ Search UI: https://huggingface.co/spaces/shawhin/yt-search-ui
 
 ### Project Development Guides 👇
 
-🎥 YouTube Playlist: https://youtube.com/playlist?list=PLz-ep5RbHosWmAt-AMK0MBgh3GeSvbCmL&si=D8Bsgy4tpWsSsQxp <br>
+🎥 YouTube Playlist: https://youtube.com/playlist?list=PLz-ep5RbHosWmAt-AMK0MBgh3GeSvbCmL <br>
 📰 Medium Reading List: https://shawhin.medium.com/list/full-stack-data-science-f0910c75d006
