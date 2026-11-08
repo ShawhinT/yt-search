@@ -2,21 +2,21 @@ name: data-pipeline-workflow
 
 on:
   schedule:
-    - cron: "35 0 * * 0" # run every day at 12:35 AM
+    - cron: "35 0 * * 0" # run weekly on Sundays at 12:35 AM UTC
   workflow_dispatch:  # manual triggers
 
 jobs:
   run-data-pipeline:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout repo content
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}  # Use the PAT instead of the default GITHUB_TOKEN
       - name: Setup python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
-          python-version: '3.9'
+          python-version: '3.12'
           cache: 'pip'
       - name: Install dependencies
         run: pip install -r data_pipeline/requirements.txt
