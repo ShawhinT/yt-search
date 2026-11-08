@@ -7,7 +7,7 @@ import sklearn
 def returnSearchResultIndexes(query: str, 
                         df: polars.lazyframe.frame.LazyFrame, 
                         model, 
-                        dist: sklearn.metrics._dist_metrics.ManhattanDistance) -> np.ndarray:
+                        dist: sklearn.metrics.DistanceMetric) -> np.ndarray:
     """
         Function to return indexes of top search results
     """
